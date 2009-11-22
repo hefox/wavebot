@@ -1,0 +1,3 @@
+name = Wave Bot Bot
+description = Bot to talk to the drupal bot. 
+core = 6.x

@@ -1,0 +1,25 @@
+<?php
+
+function wavebot_menu() {
+  $items = array();
+
+  $items['wavebot_message/process'] = array(
+    'title' => 'Process wavebot message',
+    'description' => '.',
+    'page callback' => 'wavebot_process',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+function wavebot_process() {
+  // interprut $_POST;
+    
+    $message = $_POST['message']; 
+    if (!$message) die();
+    echo "\nYour message was : " . $message; 
+    echo implode("<br/>",module_invoke_all('wavebot_process',$message)); 
+
+  die(); 
+}

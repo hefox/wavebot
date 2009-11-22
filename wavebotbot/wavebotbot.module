@@ -1,0 +1,16 @@
+<?php
+
+function wavebotbot_wavebot_process($message) {
+  global $irc; 
+  include_once dirname(__FILE__) . '/wavebotirc.inc';
+  $irc = new wavebotirc(); 
+  $data = array();
+  $data = (object)$data;
+  $data->nick = "wavebot";
+  $data->channel ="wavebot";
+  $data->message = strip_tags($message);
+  module_invoke_all('irc_msg_channel',$data); 
+  $results = $irc->get_messages(); 
+  if ($results) return $results; 
+  
+}
