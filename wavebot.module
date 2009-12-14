@@ -18,7 +18,7 @@ function wavebot_process() {
     
     $message = $_POST['message']; 
     if (!$message) die();
-    echo "\nYour message was : " . $message; 
+    echo "\nI'm listening, your message was " . $message; 
     echo implode("<br/>",module_invoke_all('wavebot_process',$message)); 
 
   die(); 
